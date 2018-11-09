@@ -1,0 +1,21 @@
+/** HERANÇAS FLEX */
+$directions: (row, row-reverse, column, column-reverse);
+$justifyContentOptions: (flex-start, flex-end, center, space-between, space-around, space-evenly);
+$alignItemsOptions: (flex-start, flex-end, center, stretch, baseline);
+$wrapOptions: (wrap, nowrap);
+
+@each $direction in $directions {
+	@each $justify in $justifyContentOptions {
+		@each $align in $alignItemsOptions {
+			@each $wrap in $wrapOptions {
+				%flex-#{$direction}-#{$justify}-#{$align}-#{$wrap} {
+					display: flex;
+					flex-direction: $direction; //DEFAULT: row
+					justify-content: $justify; //DEFAULT: flex-start
+					align-items: $align; //DEFAULT: stretch
+					flex-wrap: $wrap; //DEFAULT: nowrap
+				}
+			}
+		}
+	}
+}

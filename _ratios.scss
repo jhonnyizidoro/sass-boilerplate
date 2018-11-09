@@ -1,0 +1,23 @@
+.keep-ratio {
+	position: relative;
+	&.is-1by1 {
+		padding-top: 100%;
+	}
+	&.is-4by3 {
+		padding-top: 75%;
+	}
+	&.is-5by3 {
+		padding-top: 60%;
+	}
+	&.is-16by9 {
+		padding-top: 56.25%;
+	}
+	img, iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}

@@ -1,0 +1,11 @@
+/** COLUNAS */
+$columns: 24;
+.columns {
+	display: flex;
+	flex-wrap: wrap;
+}
+@for $i from 1 through $columns {
+	.column-#{$i} {
+		width: percentage($i / 24);
+	}
+}

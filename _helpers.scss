@@ -1,0 +1,114 @@
+//Background and font colors
+
+.bg-primary {
+	background-color: $primary;
+}
+.bg-white {
+	background-color: $white;
+}
+.bg-black {
+	background-color: $black;
+}
+.bg-muted {
+	background-color: $muted;
+}
+.bg-inverse {
+	background-color: $inverse;
+}
+
+
+//Text colors
+.text-primary {
+	color: $primary;
+}
+.text-white {
+	color: $white;
+}
+.text-black {
+	color: $black;
+}
+.text-muted {
+	color: $muted;
+}
+.text-inverse {
+	color: $inverse;
+}
+
+//Font weight
+@for $i from 1 through 10 {
+	.text-weight-#{$i * 100} {
+		font-weight: $i * 100;
+	}
+}
+
+//Sizes
+.fullwidth {
+	width: 100%;
+}
+.fullheight {
+	height: 100%;
+}
+
+//Text align
+.text-center {
+	display: block;
+	text-align: center;
+}
+.text-right {
+	display: block;
+	text-align: right;
+}
+.text-left {
+	display: block;
+	text-align: left;
+}
+
+//Displays
+.inline-block {
+	display: inline-block;
+}
+.inline {
+	display: inline;
+}
+.block {
+	display: block;
+}
+
+//Positions
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+.fixed {
+	position: fixed;
+}
+.static {
+	position: static;
+}
+
+//Spacings & borders
+.paddingless {
+	padding: 0;
+}
+.marginless {
+	margin: 0;
+}
+.borderless {
+	border: none;
+}
+
+//Displays on screen sizes
+@if variable-exists(desktopStart) {
+	@media only screen and (min-width: $desktopStart) {
+		.hide-on-desktop {
+			display: none;
+		}
+	}
+	@media only screen and (max-width: $desktopStart) {
+		.hide-on-mobile {
+			display: none;
+		}
+	}
+}
