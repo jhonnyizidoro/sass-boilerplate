@@ -1,9 +1,24 @@
-/** HERANÇAS FLEX */
+/**
+These flex inheritances help you to define a flex condition to your element with just one line.
+
+USAGE:
+.wrapper {
+	@extend %flex-column-flex-start-center-wrap;
+}
+
+OUTPUT:
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+}
+*/
 $directions: (row, row-reverse, column, column-reverse);
 $justifyContentOptions: (flex-start, flex-end, center, space-between, space-around, space-evenly);
 $alignItemsOptions: (flex-start, flex-end, center, stretch, baseline);
 $wrapOptions: (wrap, nowrap);
-
 @each $direction in $directions {
 	@each $justify in $justifyContentOptions {
 		@each $align in $alignItemsOptions {

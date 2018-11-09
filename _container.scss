@@ -1,36 +1,27 @@
-//CONTAINER
+/**
+Container is a wrapper class to center elements on the page, it can have four possible values.
+On mobile (screen smaller than $desktopStart) is fullwidth,
+Than is can assumes other three values depending on the screen size: $desktopContainer, $widescreenContainer and $fullHdContainer.
+*/
+$desktopStart: 1000px !default;
+$desktopContainer: 1000px !default;
+$widescreenStart: 1280px !default;
+$widescreenContainer: 1152px !default;
+$fullHdStart: 1472px !default;
+$fullHdContainer: 1344px !default;
 .container {
 	margin: 0 auto;
 	position: relative;
-}
-@if not variable-exists(desktopStart) {
-	.container {
-		@media screen and (min-width: 1000px) {
-			max-width: 1000px;
-			width: 1000px;
-		}
-		@media screen and (min-width: 1280px) {
-			max-width: 1152px;
-			width: 1152px;
-		}
-		@media screen and (min-width: 1472px) {
-			max-width: 1344px;
-			width: 1344px;
-		}	
+	@media screen and (min-width: $desktopStart) {
+		max-width: $desktopContainer;
+		width: $desktopContainer;
 	}
-} @else {
-	.container {
-		@media screen and (min-width: $desktopStart) {
-			max-width: $desktopContainer;
-			width: $desktopContainer;
-		}
-		@media screen and (min-width: $widescreenStart) {
-			max-width: $widescreenContainer;
-			width: $widescreenContainer;
-		}
-		@media screen and (min-width: $fullHdStart) {
-			max-width: $fullHdContainer;
-			width: $fullHdContainer;
-		}	
+	@media screen and (min-width: $widescreenStart) {
+		max-width: $widescreenContainer;
+		width: $widescreenContainer;
+	}
+	@media screen and (min-width: $fullHdStart) {
+		max-width: $fullHdContainer;
+		width: $fullHdContainer;
 	}
 }

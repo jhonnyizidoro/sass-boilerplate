@@ -1,5 +1,5 @@
 /**
-* Variáveis do Grid
+Container variables
 */
 $desktopStart: 1000px;
 $desktopContainer: 1000px;
@@ -9,10 +9,22 @@ $fullHdStart: 1472px;
 $fullHdContainer: 1344px;
 
 /**
-* Variáveis de cor
+Grid variables
 */
-$primary: #FDCC00;
-$inverse: #FDCC00;
+$columns: 24;
+
+/**
+Color variables
+*/
+$primary: #00D1B2;
+$secondary: #F96854;
 $muted: #848484;
-$white: #FFF;
-$black: #0F0F0F;
+$white: #FFFFFF;
+$black: #0A0A0A;
+$light: #F5F5F5;
+$dark: #363636;
+$link: #3273DC;
+$info: #209CEE;
+$success: #23D160;
+$warning: #FFDD57;
+$danger: #FF3860;

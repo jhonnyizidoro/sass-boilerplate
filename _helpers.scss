@@ -1,45 +1,92 @@
-//Background and font colors
+/**
+This color section will generate classes for text color and background color for each color declared inside my $defaultColors list
 
-.bg-primary {
-	background-color: $primary;
-}
-.bg-white {
-	background-color: $white;
-}
-.bg-black {
-	background-color: $black;
-}
-.bg-muted {
-	background-color: $muted;
-}
-.bg-inverse {
-	background-color: $inverse;
-}
-
-
-//Text colors
+OUTPUT:
 .text-primary {
-	color: $primary;
+	color: #00D1B2;
 }
-.text-white {
-	color: $white;
+.background-primary {
+	background-color: #00D1B2;
 }
-.text-black {
-	color: $black;
-}
-.text-muted {
-	color: $muted;
-}
-.text-inverse {
-	color: $inverse;
+*/
+$primary: #00D1B2 !default;
+$secondary: #F96854 !default;
+$muted: #848484 !default;
+$white: #FFFFFF !default;
+$black: #0A0A0A !default;
+$light: #F5F5F5 !default;
+$dark: #363636 !default;
+$link: #3273DC !default;
+$info: #209CEE !default;
+$success: #23D160 !default;
+$warning: #FFDD57 !default;
+$danger: #FF3860 !default;
+
+$defaultColors: (
+	'primary': $primary,
+	'secondary': $secondary,
+	'muted': $muted,
+	'white': $white,
+	'black': $black,
+	'light': $light,
+	'dark': $dark,
+	'link': $link,
+	'info': $info,
+	'success': $success,
+	'warning': $warning,
+	'danger': $danger
+);
+
+@each $colorName, $color in $defaultColors {
+	.text-#{$colorName} {
+		color: $color;
+	}
+	.background-#{$colorName} {
+		background-color: $color;
+	}
 }
 
-//Font weight
+
+/**
+This block generates some helpers classes for margin and padding.
+It will use the values inside the #spaceAmounts list.
+
+OUTPUT:
+.p-l-30 {
+	padding-left: 30px;
+}
+.m-b-10 {
+	margin-bottom: 10px;
+}
+*/
+$spaceAmounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 75, 100);
+$sides: (top, bottom, left, right);
+@each $space in $spaceAmounts {
+	@each $side in $sides {
+		.m-#{str-slice($side, 0, 1)}-#{$space} {
+			margin-#{$side}: #{$space}px;
+		}
+		.p-#{str-slice($side, 0, 1)}-#{$space} {
+			padding-#{$side}: #{$space}px;
+		}
+	}
+}
+
+
+/**
+This block generates some helpers classes font weight.
+
+OUTPUT:
+.text-weight-100 {
+	font-weight: 100;
+}
+*/
 @for $i from 1 through 10 {
 	.text-weight-#{$i * 100} {
 		font-weight: $i * 100;
 	}
 }
+
 
 //Sizes
 .fullwidth {
@@ -48,20 +95,20 @@
 .fullheight {
 	height: 100%;
 }
+.fill {
+	height: 100%;
+	width: 100%;
+}
 
 //Text align
-.text-center {
-	display: block;
-	text-align: center;
+$textAligns: (left, right, center, justify);
+@each $alignment in $textAligns {
+	.text-#{$alignment} {
+		display: block;
+		text-align: $alignment;
+	}
 }
-.text-right {
-	display: block;
-	text-align: right;
-}
-.text-left {
-	display: block;
-	text-align: left;
-}
+
 
 //Displays
 .inline-block {
@@ -74,7 +121,7 @@
 	display: block;
 }
 
-//Positions
+//Position
 .relative {
 	position: relative;
 }
@@ -88,7 +135,7 @@
 	position: static;
 }
 
-//Spacings & borders
+//Spacings and borders
 .paddingless {
 	padding: 0;
 }
@@ -100,15 +147,14 @@
 }
 
 //Displays on screen sizes
-@if variable-exists(desktopStart) {
-	@media only screen and (min-width: $desktopStart) {
-		.hide-on-desktop {
-			display: none;
-		}
+$desktopStart: 100% !default;
+@media only screen and (min-width: $desktopStart) {
+	.hide-on-desktop {
+		display: none;
 	}
-	@media only screen and (max-width: $desktopStart) {
-		.hide-on-mobile {
-			display: none;
-		}
+}
+@media only screen and (max-width: $desktopStart) {
+	.hide-on-mobile {
+		display: none;
 	}
 }
