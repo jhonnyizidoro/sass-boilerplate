@@ -1,6 +1,4 @@
-/**
-Container variables
-*/
+//Container variables
 $desktopStart: 1000px;
 $desktopContainer: 1000px;
 $widescreenStart: 1280px;
@@ -8,14 +6,11 @@ $widescreenContainer: 1152px;
 $fullHdStart: 1472px;
 $fullHdContainer: 1344px;
 
-/**
-Grid variables
-*/
+//Grid variables
 $columns: 24;
+$gap: 10px;
 
-/**
-Color variables
-*/
+//Color variables
 $primary: #00D1B2;
 $secondary: #F96854;
 $muted: #848484;

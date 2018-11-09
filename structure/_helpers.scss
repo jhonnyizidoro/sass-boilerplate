@@ -1,5 +1,5 @@
 /**
-This color section will generate classes for text color and background color for each color declared inside my $defaultColors list
+This color section will generate classes for text color and background-color for each element inside $defaultColors list
 
 OUTPUT:
 .text-primary {
@@ -73,14 +73,7 @@ $sides: (top, bottom, left, right);
 }
 
 
-/**
-This block generates some helpers classes font weight.
-
-OUTPUT:
-.text-weight-100 {
-	font-weight: 100;
-}
-*/
+//This block generates some helpers classes font weight.
 @for $i from 1 through 10 {
 	.text-weight-#{$i * 100} {
 		font-weight: $i * 100;
@@ -147,7 +140,7 @@ $textAligns: (left, right, center, justify);
 }
 
 //Displays on screen sizes
-$desktopStart: 100% !default;
+$desktopStart: 100px !default;
 @media only screen and (min-width: $desktopStart) {
 	.hide-on-desktop {
 		display: none;

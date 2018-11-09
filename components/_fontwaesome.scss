@@ -1,0 +1,86 @@
+//Hover animation for fontawesome icons with their respective color
+$brandColors: (
+	'android': #65AE43,
+	'angular': #D6002F,
+	'app-store-ios': #1581E9,
+	'apple': #A6B1B7,
+	'bitbucket': #2580F7,
+	'blogger': #F65421,
+	'blogger-b': #F65421,
+	'css3': #1A6FB4,
+	'css3-alt': #1A6FB4,
+	'discord': #6F85D5,
+	'docker': #0997E5,
+	'edge': #0074D0,
+	'facebook': #4064AC,
+	'facebook-f': #4064AC,
+	'facebook-messenger': #01AFF7,
+	'facebook-square': #4064AC,
+	'firefox': #F76212,
+	'font-awesome': #339AF0,
+	'github': #302F2F,
+	'github-alt': #302F2F,
+	'github-square': #302F2F,
+	'gitlab': #F46A25,
+	'google-drive': #5D9DEE,
+	'google-play': #00AEF7,
+	'google': #4081EC,
+	'html5': #DD4B25,
+	'js': #EFD81D,
+	'js-square': #EFD81D,
+	'laravel': #F35045,
+	'less': #1D3F6C,
+	'linkedin': #0077B0,
+	'linkedin-in': #0077B0,
+	'node-js': #8BBF3D,
+	'npm': #C60000,
+	'paypal': #002E81,
+	'php': #7377AD,
+	'pinterest': #B7081A,
+	'pinterest-p': #B7081A,
+	'pinterest-square': #B7081A,
+	'sass': #C76494,
+	'safari': #12A7E8,
+	'skype': #01A9EA,
+	'slack': #53364C,
+	'slack-hash': #53364C,
+	'snapchat': #F6F600,
+	'snapchat-ghost': #F6F600,
+	'snapchat-square': #F6F600,
+	'soundcloud': #F76201,
+	'spotify': #22C95C,
+	'steam': #193D57,
+	'steam-square': #193D57,
+	'steam-symbol': #D5D9DA,
+	'telegram': #2A9ED0,
+	'telegram-plane': #2A9ED0,
+	'trello': #007EC8,
+	'tumblr': #2F4155,
+	'tumblr-square': #2F4155,
+	'twitch': #603E9F,
+	'twitter': #53CFF6,
+	'twitter-square': #53CFF6,
+	'uber': #000000,
+	'vuejs': #3FB27F,
+	'whatsapp': #47C156,
+	'whatsapp-square': #47C156,
+	'windows': #0074CF,
+	'wordpress': #207196,
+	'wordpress-simple': #207196,
+	'xbox': #0F780F,
+	'youtube': #F60002,
+	'youtube-square': #F60002
+);
+
+i.fab:not(.static) {
+	transition: 300ms ease-out;
+	&:hover {
+		transition: 400ms ease-in;
+	}
+}
+
+@each $brand, $color in $brandColors {
+	i.fab.fa-#{$brand}:hover {
+		color: $color;
+	}
+}

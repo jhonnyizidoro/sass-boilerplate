@@ -1,33 +1,24 @@
 /**
 Columns wrapper class
-
-USAGE:
-<div class="columns">
-	<div class="column-6">
-		...
-	</div>
-</div>
 */
 .columns {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-
 /*
-Apply these classes in the columns children elements.
-The amount of columns is defined in the variable $columns.
-
-USAGE:
-<div class="columns">
-	<div class="column-6">
-		...
-	</div>
-</div>
+This are the columns classes. Must be used after .columns class
 */
 $columns: 24 !default;
+$gap: 0 !default;
+.column {
+	padding: $gap;
+	flex-basis: 0;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
 @for $i from 1 through $columns {
-	.column-#{$i} {
+	.column.is-#{$i} {
 		width: percentage($i / 24);
 	}
 }
