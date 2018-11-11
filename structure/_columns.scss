@@ -1,25 +1,25 @@
-/**
-Columns wrapper class
-*/
+//Grid classes
+$columns: 24 !default;
+$gap: 0 !default;
 .columns {
 	display: flex;
 	flex-wrap: wrap;
+	&.is-centered {
+		justify-content: center;
+	}
 }
-
-/*
-This are the columns classes. Must be used after .columns class
-*/
-$columns: 24 !default;
-$gap: 0 !default;
 .column {
 	padding: $gap;
-	flex-basis: 0;
-	flex-grow: 1;
 	flex-shrink: 1;
 }
 @for $i from 1 through $columns {
-	.column.is-#{$i} {
-		width: percentage($i / 24);
+	.column {
+		&.is-#{$i} {
+			width: percentage($i / 24);
+		}
+		&.is-offset-#{$i} {
+			margin-left: percentage($i / 24)
+		}
 	}
 }
 

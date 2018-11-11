@@ -1,5 +1,5 @@
 //Hover animation for fontawesome icons with their respective color
-$brandColors: (
+$iconColors: (
 	'android': #65AE43,
 	'angular': #D6002F,
 	'app-store-ios': #1581E9,
@@ -12,6 +12,7 @@ $brandColors: (
 	'discord': #6F85D5,
 	'docker': #0997E5,
 	'edge': #0074D0,
+	'envelope': #F7CA59,
 	'facebook': #4064AC,
 	'facebook-f': #4064AC,
 	'facebook-messenger': #01AFF7,
@@ -26,6 +27,7 @@ $brandColors: (
 	'google-play': #00AEF7,
 	'google': #4081EC,
 	'html5': #DD4B25,
+	'instagram': #F73D8A,
 	'js': #EFD81D,
 	'js-square': #EFD81D,
 	'laravel': #F35045,
@@ -35,6 +37,7 @@ $brandColors: (
 	'node-js': #8BBF3D,
 	'npm': #C60000,
 	'paypal': #002E81,
+	'phone': #AD0303,
 	'php': #7377AD,
 	'pinterest': #B7081A,
 	'pinterest-p': #B7081A,
@@ -72,15 +75,17 @@ $brandColors: (
 	'youtube-square': #F60002
 );
 
-i.fab:not(.static) {
-	transition: 300ms ease-out;
-	&:hover {
-		transition: 400ms ease-in;
+i:not(.static) {
+	&.fab, &.fas, &.far {
+		transition: 100ms;
+		&:hover {
+			transition: 150ms;
+		}
 	}
 }
 
-@each $brand, $color in $brandColors {
-	i.fab.fa-#{$brand}:hover {
+@each $icon, $color in $iconColors {
+	i.fa-#{$icon}:hover {
 		color: $color;
 	}
 }
