@@ -1,0 +1,39 @@
+=flex($direction, $justify, $align, $wrap)
+	:display flex
+	:flex-direction $direction
+	:justify-content $justify
+	:align-items $align
+	:flex-wrap $wrap
+
+=columns($columnSize, $totalColumns, $gap: $gap)
+	:display flex
+	:flex-wrap wrap
+	>*
+		:padding $gap
+		:width percentage($columnSize / $totalColumns)
+		+mobile
+			:width 100%
+
+=font($size, $color, $lineHeight, $fontHeight, $textAlign: left, $transformation: none)
+	:font-size $size
+	:color $color	
+	:line-height $lineHeight
+	:font-weight $fontHeight
+	:text-transform $transformation
+	:text-align $textAlign
+
+=mobile
+	@media only screen and (max-width: #{$desktopStart})
+		@content
+
+=desktop
+	@media only screen and (min-width: #{$desktopStart + 1})
+		@content
+
+=widescreen
+	@media only screen and (min-width: #{$widescreenStart + 1})
+		@content
+
+=fullhd
+	@media only screen and (min-width: #{$fullHdStart + 1})
+		@content
