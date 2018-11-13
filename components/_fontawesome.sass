@@ -2,10 +2,10 @@ $iconColors: ('android' #65AE43, 'angular' #D6002F, 'app-store-ios' #1581E9, 'ap
 
 i:not(.static)
 	&.fab, &.fas, &.far
-		:transition 100ms
+		transition: 100ms
 		&:hover
-			:transition 150ms
+			transition: 150ms
 
 @each $icon, $color in $iconColors
 	i.fa-#{$icon}:hover 
-		:color $color
+		color: $color

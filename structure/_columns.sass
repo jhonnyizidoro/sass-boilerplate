@@ -1,20 +1,20 @@
 .columns
-	:display flex
-	:flex-wrap wrap
+	display: flex
+	flex-wrap: wrap
 	&.is-centered
-		:justify-content center
+		justify-content: center
 	.column
-		:padding $gap
+		padding: $gap
 
 +mobile
 	.column
-		:flex none
-		:width 100%
+		flex: none
+		width: 100%
 
 +desktop
 	@for $i from 1 through $columns
 		.column
 			&.is-#{$i}
-				:width percentage($i / $columns)
+				width: percentage($i / $columns)
 			&.is-offset-#{$i}
-				:margin-left percentage($i / $columns)
+				margin-left: percentage($i / $columns)

@@ -2,61 +2,61 @@ $defaultColors: 'primary' $primary, 'secondary' $secondary,	'muted' $muted,	'whi
 
 @each $colorName, $color in $defaultColors
 	.text-#{$colorName}
-		:color $color
+		color: $color
 	.background-#{$colorName}
-		:background-color $color
+		background-color: $color
 
 @each $space in 0, 5, 10, 15, 20, 25, 30, 40, 50, 75, 100
 	.m-#{$space}
-		:margin #{$space}px
+		margin: #{$space}px
 	.p-#{$space}
-		:padding #{$space}px
+		padding: #{$space}px
 	@each $side in top, bottom, left, right
 		.m-#{str-slice($side, 0, 1)}-#{$space}
-			:margin-#{$side} #{$space}px
+			margin-#{$side}: #{$space}px
 		.p-#{str-slice($side, 0, 1)}-#{$space}
-			:padding-#{$side} #{$space}px
+			padding-#{$side}: #{$space}px
 
 @for $i from 1 through 10
 	.text-weight-#{$i * 100}
-		:font-weight $i * 100
+		font-weight: $i * 100
 
 .fullwidth
-	:width 100%
+	width: 100%
 
 .fullheight
-	:height 100%
+	height: 100%
 
 .fill
-	:height 100%
-	:width 100%
+	height: 100%
+	width: 100%
 
 @each $alignment in left, right, center, justify
 	.text-#{$alignment}
-		:display block
-		:text-align $alignment
+		display: block
+		text-align: $alignment
 
 @each $position in absolute, fixed, relative, static
 	.#{$position}
-		:position #{$position}
+		position: #{$position}
 
 +desktop
 	.hide-on-desktop
-		:display none
+		display: none
 
 +mobile
 	.hide-on-mobile
-		:display none
+		display: none
 
 .keep-ratio
 	position: relative
 	img, iframe
-		:position absolute
-		:top 0
-		:left 0
-		:width 100%
-		:height 100%
-		:object-fit cover
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		object-fit: cover
 	@each $width, $height in 1 1, 4 3, 5 3, 16 9
 		&.is-#{$width}by#{$height}
-			:padding-top percentage($height / $width)
+			padding-top: percentage($height / $width)
