@@ -1,27 +1,3 @@
-=flex($direction, $justify, $align, $wrap)
-	display: flex
-	flex-direction: $direction
-	justify-content: $justify
-	align-items: $align
-	flex-wrap: $wrap
-
-=columns($columnSize, $totalColumns, $gap: $gap)
-	display: flex
-	flex-wrap: wrap
-	>*
-		padding: $gap
-		width: percentage($columnSize / $totalColumns)
-		+mobile
-			width: 100%
-
-=font($size, $color, $lineHeight, $fontHeight, $textAlign: left, $transformation: none)
-	font-size: $size
-	color: $color	
-	line-height: $lineHeight
-	font-weight: $fontHeight
-	text-transform: $transformation
-	text-align: $textAlign
-
 =mobile
 	@media only screen and (max-width: #{$desktopStart})
 		@content
@@ -37,3 +13,63 @@
 =fullhd
 	@media only screen and (min-width: #{$fullHdStart + 1})
 		@content
+
+=flex($direction, $justify, $align, $wrap: nowrap)
+	display: flex
+	flex-direction: $direction
+	justify-content: $justify
+	align-items: $align
+	flex-wrap: $wrap
+
+=columns($columnSize, $totalColumns, $gap: $gap)
+	+desktop
+		display: flex
+		flex-wrap: wrap
+		>*
+			padding: $gap
+			width: percentage($columnSize / $totalColumns)
+
+=font($size: null, $weight: null, $height: null, $color: null, $transform: null, $align: null, $spacing: null)
+	@if $size
+		font-size: $size
+	@if $height
+		line-height: $height
+	@if $weight
+		font-weight: $weight
+	@if $color
+		color: $color
+	@if $transform
+		text-transform: $transform
+	@if $align
+		text-align: $align
+	@if $spacing
+		letter-spacing: $spacing
+
+=cover {
+	width: 100%
+	height: 100%
+	object-fit: cover
+
+=centralizeY($chilElement, $width: 100%)
+	position: relative
+	#{$chilElement}
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		width: $width
+
+=triangle($size, $color, $offsetRight)
+	&::after
+		content: ''
+		border-left: $size solid transparent
+		border-right: $size solid transparent
+		border-bottom: $size solid $color
+		top: -$size
+		height: 0
+		right: $offsetRight
+		position: absolute
+		width: 0
+
+=size($size)
+	width: $size
+	height: $size
