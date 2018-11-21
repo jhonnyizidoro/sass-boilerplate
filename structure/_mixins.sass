@@ -14,12 +14,14 @@
 	@media only screen and (min-width: #{$fullHdStart + 1})
 		@content
 
-=flex($justify, $align, $direction: row, $wrap: nowrap)
+=flex($justify, $align, $direction: row, $wrap: nowrap, $grow: 0)
 	display: flex
 	justify-content: $justify
 	align-items: $align
 	flex-direction: $direction
 	flex-wrap: $wrap
+	>*
+		flex-grow: $grow
 
 =columns($columnSize, $totalColumns, $gap: $gap)
 	+desktop

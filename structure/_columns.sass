@@ -4,7 +4,7 @@
 	&.is-centered
 		justify-content: center
 	&:not(.gapless)
-		.column
+		>.column
 			padding: $gap
 
 +mobile
@@ -17,5 +17,7 @@
 		.column
 			&.is-#{$i}
 				width: percentage($i / $columns)
+				&.fill
+					margin-right: percentage(1 - ($i / $columns))
 			&.is-offset-#{$i}
 				margin-left: percentage($i / $columns)
