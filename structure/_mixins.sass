@@ -14,7 +14,7 @@
 	@media only screen and (min-width: #{$fullHdStart + 1})
 		@content
 
-=flex($justify, $align, $direction: row, $wrap: nowrap, $grow: 0)
+=flex($justify, $align, $direction: row, $wrap: nowrap, $grow: 0, $shrink: 1)
 	display: flex
 	justify-content: $justify
 	align-items: $align
@@ -22,6 +22,7 @@
 	flex-wrap: $wrap
 	>*
 		flex-grow: $grow
+		flex-shrink: $shrink
 
 =columns($columnSize, $totalColumns, $gap: $gap)
 	+desktop
@@ -52,8 +53,8 @@
 	height: 100%
 	object-fit: cover
 
-=centralizeY($chilElement, $width: 100%)
-	position: relative
+=centralizeY($chilElement, $width: 100%, $parentPosition: relative)
+	position: $parentPosition
 	#{$chilElement}
 		position: absolute
 		top: 50%
@@ -93,3 +94,13 @@
   white-space: nowrap
   overflow: hidden
   text-overflow: ellipsis
+
+=background($image: false, $repeat: false, $color: false, $origin: false)
+	@if $image
+		background-image: $image
+	@if $repeat
+		background-repeat: $repeat
+	@if $color
+		background-color: $color
+	@if $origin
+		background-origin: $origin
