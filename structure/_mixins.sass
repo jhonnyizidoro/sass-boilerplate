@@ -24,29 +24,29 @@
 		flex-grow: $grow
 		flex-shrink: $shrink
 
-=columns($columnSize, $totalColumns, $gap: $gap)
+=columns($totalColumns, $gap: $gap)
 	+desktop
 		display: flex
 		flex-wrap: wrap
 		>*
 			padding: $gap
-			width: percentage($columnSize / $totalColumns)
+			width: percentage(1 / $totalColumns)
 
-=font($size: false, $weight: false, $lh: false, $color: false, $transform: false, $align: false, $spacing: false)
-	@if $size
-		font-size: $size
-	@if $weight
-		font-weight: $weight
-	@if $lh
-		line-height: $lh
-	@if $color
-		color: $color
-	@if $transform
-		text-transform: $transform
-	@if $align
-		text-align: $align
-	@if $spacing
-		letter-spacing: $spacing
+=font($s: false, $w: false, $h: false, $c: false, $t: false, $a: false, $s: false)
+	@if $s
+		font-size: $s
+	@if $w
+		font-weight: $w
+	@if $h
+		line-height: $h
+	@if $c
+		color: $c
+	@if $t
+		text-transform: $t
+	@if $a
+		text-align: $a
+	@if $s
+		letter-spacing: $s
 
 =cover
 	width: 100%
@@ -61,20 +61,19 @@
 		transform: translateY(-50%)
 		width: $width
 
-=triangle($size, $color, $offsetRight)
-	&::after
-		+pseudo
-		border-left: $size solid transparent
-		border-right: $size solid transparent
-		border-bottom: $size solid $color
-		top: -$size
-		height: 0
-		right: $offsetRight
-		width: 0
+=size($width, $height: false)
+	@if not $height
+		$height: $width
+	width: $width
+	height: $height
 
-=size($size)
-	width: $size
-	height: $size
+=position($t: auto, $r: auto, $b: auto, $l: auto, $position: absolute)
+	@if $position
+		position: $position
+	top: $t
+	right: $r
+	bottom: $b
+	left: $l
 
 =border($style, $sides...)
 	@if length($sides) == 0
@@ -104,3 +103,38 @@
 		background-color: $color
 	@if $origin
 		background-origin: $origin
+
+=square($top, $right, $background, $color, $text: '')
+	position: relative
+	&::after
+		padding: 0.25em 1em
+		content: $text
+		position: absolute
+		background: $background
+		color: $white
+		@if $right == center and $top == center
+			right: 50%
+			top: 50%
+			transform: translateX(50%) translateY(-50%)
+		@elseif $right == center
+			right: 50%
+			transform: translateX(50%)
+			top: $top
+		@elseif $top == center
+			top: 50%
+			transform: translateY(-50%)
+			right: $rigth
+		@else
+			top: $top
+			right: $rigth
+
+=triangle($size, $color, $offsetRight)
+	&::after
+		+pseudo
+		border-left: $size solid transparent
+		border-right: $size solid transparent
+		border-bottom: $size solid $color
+		top: -$size
+		height: 0
+		right: $offsetRight
+		width: 0
