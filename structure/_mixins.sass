@@ -24,29 +24,38 @@
 		flex-grow: $grow
 		flex-shrink: $shrink
 
-=columns($totalColumns, $gap: $gap)
-	+desktop
-		display: flex
-		flex-wrap: wrap
-		>*
-			padding: $gap
-			width: percentage(1 / $totalColumns)
+=columns($totalColumns, $gap: $gap, $mobile: false)
+	@if $mobile
+		+mobile
+			display: flex
+			flex-wrap: wrap
+			>*
+				padding: $gap
+				width: percentage(1 / $totalColumns)
+	@else
+		+desktop
+			display: flex
+			flex-wrap: wrap
+			>*
+				padding: $gap
+				width: percentage(1 / $totalColumns)
 
-=font($s: false, $w: false, $h: false, $c: false, $t: false, $a: false, $s: false)
+
+=font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false)
 	@if $s
 		font-size: $s
 	@if $w
 		font-weight: $w
-	@if $h
-		line-height: $h
+	@if $lh
+		line-height: $lh
 	@if $c
 		color: $c
 	@if $t
 		text-transform: $t
 	@if $a
 		text-align: $a
-	@if $s
-		letter-spacing: $s
+	@if $ls
+		letter-spacing: $ls
 
 =cover
 	width: 100%
@@ -61,9 +70,7 @@
 		transform: translateY(-50%)
 		width: $width
 
-=size($width, $height: false)
-	@if not $height
-		$height: $width
+=size($width, $height: $width)
 	width: $width
 	height: $height
 
@@ -88,7 +95,8 @@
   display: $display
   position: $pos
 
-=truncate($maxWidth)
+=truncate($maxWidth, $display: block)
+	display: $display
 	max-width: $maxWidth
   white-space: nowrap
   overflow: hidden
@@ -96,7 +104,7 @@
 
 =background($image: false, $repeat: false, $color: false, $origin: false)
 	@if $image
-		background-image: $image
+		background-image: url($image) 
 	@if $repeat
 		background-repeat: $repeat
 	@if $color
@@ -111,7 +119,7 @@
 		content: $text
 		position: absolute
 		background: $background
-		color: $white
+		color: $color
 		@if $right == center and $top == center
 			right: 50%
 			top: 50%
@@ -127,14 +135,3 @@
 		@else
 			top: $top
 			right: $rigth
-
-=triangle($size, $color, $offsetRight)
-	&::after
-		+pseudo
-		border-left: $size solid transparent
-		border-right: $size solid transparent
-		border-bottom: $size solid $color
-		top: -$size
-		height: 0
-		right: $offsetRight
-		width: 0
