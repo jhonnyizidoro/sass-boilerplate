@@ -40,6 +40,10 @@ $defaultColors: 'primary' $primary, 'secondary' $secondary,	'muted' $muted,	'whi
 	.#{$position}
 		position: #{$position}
 
+@each $display in inline, block, inline-block
+	.#{$display}
+		display: $display
+
 +desktop
 	.hide-on-desktop
 		display: none
