@@ -1,9 +1,7 @@
 Hi, this is my default Sass boilerplate for my projects. Feel free to use it. You must know at least the basics about Sass, or just read the docs (:
 
 This doc will cover file by file, in the order that they are imported in the app.sass file.
-
-Whay Sass, not SCSS?
-
+## Whay Sass, not SCSS?
 The answer is simple, you write less code, a lot less. It's more productive, take a simple use of a mixin as an example.
 
 ```scss
@@ -16,14 +14,9 @@ Sass syntax
 .container
   +mixin_name($parameter)
 ```
-
-App
-
+## App
 This is the mais file, where all the other files will be imported. This is necessary because Sass processors normaly process only one file by default. The variables and mixins files must be the firsts to be included.
-
-
-Variables
-
+## Variables and Container
 The _variables file is the core of this boilerplate. You can customize any of them.
 
 The $desktopStart variable defines the size where the columns will stack and your screen will be considered mobile. Then whe have the $desktopContainer, that defines the size of the container in screens larger than $desktopStart. The same rule is applied for $widscreenStart, in screens with the width between $widsecreenStart and $fullHdStart, the container size will be $widescreenContainer. In screen larger than $fullHdStart, the container size will always be $fullHdContainer.
@@ -45,9 +38,7 @@ $gap: 10px
 ```
 
 The color variables are not that important, but you must keep the default ones because the _helpers file will use them to gerenerate some helper classes. I don't think it's necessary to create more colors, just customize the ones tha already existis.
-
-Mixins
-
+## Mixins
 This is my favorite feature of Sass, this helps you to inject a lot of CSS with just one line os Sass. I will cover one by one of the mixins bellow.
 
 Mobile, desktop, widescreen and fullhd
@@ -75,8 +66,7 @@ Use these mixins when you need to stylize and element for just one screen size. 
   }
 }
 ```
-
-Flex
+### Flex
 This mixins receives six parameters, but some of them are not required, they are:
 ```css
 /* PARAMETERS */
@@ -104,8 +94,7 @@ This mixins receives six parameters, but some of them are not required, they are
   flex-shrink: 1;
 }
 ```
-
-Columns
+### Columns
 This will generate a system like the grid system, but only for the element that you apply this mixin. The cool thing about this is that it allows you to change how mutch columns you will have in mobile and desktop. The first parameter is the $totalColumns. If you pass 4, for example, all the direct children of thre element will have 25% width.
 ```css
 /* PARAMETERS */
@@ -140,8 +129,7 @@ This will generate a system like the grid system, but only for the element that 
   }
 }
 ```
-
-Font
+### Font
 This is other mixins that can make your Sass a lot cleaner. All the parameters are optional. I made the variable name with only one letter, it seems to be confusing in the beginning, but once you are used to it, it's very easier.
 ```css
 /* PARAMETERS */
@@ -164,8 +152,7 @@ p.article {
   text-transform: uppercase;
 }
 ```
-
-Cover
+### Cover
 Make you image cover the wrapper div.
 ```css
 /* USAGE */
@@ -179,8 +166,7 @@ img {
   object-fit: cover;
 }
 ```
-
-Centralize Y
+### Centralize Y
 This mixin should be used in the parent element, than you should pass the selector of the element that will be centralized as a parameter.
 ```css
 /* PARAMETERS */
@@ -203,8 +189,7 @@ This mixin should be used in the parent element, than you should pass the select
   width: 100%;
 }
 ```
-
-Size
+### Size
 Defines the size of the element. If you pass only one parameter, both width and height will have the sabe size, but you can pass the width and height two.
 ```css
 /* PARAMETERS */
@@ -221,8 +206,7 @@ Defines the size of the element. If you pass only one parameter, both width and 
   height: 20px;
 }
 ```
-
-Position
+### Position
 Passa $position: false if you don't wanna change the element position.
 ```css
 /* PARAMETERS */
@@ -243,8 +227,7 @@ Passa $position: false if you don't wanna change the element position.
   left: 5px;
 }
 ```
-
-Border
+### Border
 This is only useful if you wanna apply border in two or three sides, otherwise is bettrer to use the default CSS property.
 ```css
 /* PARAMETERS */
@@ -262,8 +245,7 @@ This is only useful if you wanna apply border in two or three sides, otherwise i
   border-bottom: 1px solid red;
 }
 ```
-
-Pseudo
+### Pseudo
 I use this somethimes in pseudo elements (::befone and ::after), because almos always this propertys are default.
 ```css
 /* PARAMETERS */
@@ -282,7 +264,7 @@ I use this somethimes in pseudo elements (::befone and ::after), because almos a
   position: absolute;
 }
 ```
-Truncate
+### Truncate
 This is useful when you wanna truncate some text inside a block.
 ```css
 /* PARAMETERS */
@@ -303,7 +285,7 @@ h1 {
 }
 ```
 
-Backgorund
+### Backgorund
 This mixin is incomplete yet, I'm inserting parameters as long as I'm needing. Al these parameters are optional and will only be applied if passed to the mixin.
 ```css
 /* PARAMETERS */
@@ -325,7 +307,7 @@ body {
 }
 ```
 
-Square
+### Square
 This is another mixin that need some improvement. Using this will generate a block with text somewhere in the div. Like the example bellow. You can pass center and center in the two first parameters, than the block will be centered in your div.
 ```css
 /* PARAMETERS REQUIRED */
