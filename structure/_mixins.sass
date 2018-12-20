@@ -14,7 +14,7 @@
 	@media only screen and (min-width: #{$fullHdStart + 1})
 		@content
 
-=flex($justify, $align, $direction: row, $wrap: nowrap, $grow: 0, $shrink: 1)
+=flex($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap, $grow: 0, $shrink: 1)
 	display: flex
 	justify-content: $justify
 	align-items: $align
@@ -102,7 +102,7 @@
   overflow: hidden
   text-overflow: ellipsis
 
-=background($image: false, $repeat: false, $color: false, $origin: false)
+=background($image: false, $repeat: false, $color: false, $origin: false, $cover: false, $position: false)
 	@if $image
 		background-image: url($image) 
 	@if $repeat
@@ -111,6 +111,10 @@
 		background-color: $color
 	@if $origin
 		background-origin: $origin
+	@if $cover
+		background-cover: $cover
+	@if $position
+		background-position: $position
 
 =square($top, $right, $background, $color, $text: '')
 	position: relative
