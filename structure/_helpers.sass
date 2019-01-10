@@ -1,11 +1,3 @@
-$defaultColors: 'primary' $primary, 'secondary' $secondary,	'muted' $muted,	'white' $white,	'black' $black,	'light' $light,	'dark' $dark, 'link' $link, 'info' $info, 'success' $success, 'warning' $warning, 'danger' $danger
-
-@each $colorName, $color in $defaultColors
-	.text-#{$colorName}
-		color: $color
-	.background-#{$colorName}
-		background-color: $color
-
 @each $space in 0, 5, 10, 15, 20, 25, 30, 40, 50, 75, 100
 	.m-#{$space}
 		margin: #{$space}px
@@ -17,35 +9,17 @@ $defaultColors: 'primary' $primary, 'secondary' $secondary,	'muted' $muted,	'whi
 		.p-#{str-slice($side, 0, 1)}-#{$space}
 			padding-#{$side}: #{$space}px
 
-@for $i from 1 through 10
-	.text-weight-#{$i * 100}
-		font-weight: $i * 100
-
-.fullwidth
-	width: 100%
-
-.fullheight
-	height: 100%
-
-.fill
-	height: 100%
-	width: 100%
-
 @each $alignment in left, right, center, justify
 	.text-#{$alignment}
 		display: block
 		text-align: $alignment
 
-@each $position in absolute, fixed, relative, static
-	.#{$position}
-		position: #{$position}
-
-@each $display in inline, block, inline-block
-	.#{$display}
-		display: $display
-
 +desktop
 	.hide-on-desktop
+		display: none
+
++tablet
+	.hide-on-tablet
 		display: none
 
 +mobile

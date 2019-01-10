@@ -1,13 +1,14 @@
 .columns
 	display: flex
 	flex-wrap: wrap
+	flex-direction: row
 	&.is-centered
 		justify-content: center
 	&:not(.gapless)
 		>.column
 			padding: $gap
 
-+mobile
++tablet
 	.column
 		flex: none
 		width: 100%
@@ -17,7 +18,5 @@
 		.column
 			&.is-#{$i}
 				width: percentage($i / $columns)
-				&.fill
-					margin-right: percentage(1 - ($i / $columns))
 			&.is-offset-#{$i}
 				margin-left: percentage($i / $columns)

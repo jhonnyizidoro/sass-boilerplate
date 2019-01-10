@@ -1,17 +1,21 @@
 =mobile
-	@media only screen and (max-width: #{$desktopStart})
+	@media only screen and (max-width: #{$tabletStart})
+		@content
+
+=tablet
+	@media only screen and (max-width: #{$desktopStart - 1})
 		@content
 
 =desktop
-	@media only screen and (min-width: #{$desktopStart + 1})
+	@media only screen and (min-width: #{$desktopStart})
 		@content
 
 =widescreen
-	@media only screen and (min-width: #{$widescreenStart + 1})
+	@media only screen and (min-width: #{$widescreenStart})
 		@content
 
 =fullhd
-	@media only screen and (min-width: #{$fullHdStart + 1})
+	@media only screen and (min-width: #{$fullHdStart})
 		@content
 
 =flex($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap, $grow: 0, $shrink: 1)
@@ -24,21 +28,13 @@
 		flex-grow: $grow
 		flex-shrink: $shrink
 
-=columns($totalColumns, $gap: $gap, $mobile: false)
-	@if $mobile
-		+mobile
-			display: flex
-			flex-wrap: wrap
-			>*
-				padding: $gap
-				width: percentage(1 / $totalColumns)
-	@else
-		+desktop
-			display: flex
-			flex-wrap: wrap
-			>*
-				padding: $gap
-				width: percentage(1 / $totalColumns)
+=columns($totalColumns, $gap: $gap)
+	flex-direction: row
+	display: flex
+	flex-wrap: wrap
+	>*
+		padding: $gap
+		width: percentage(1 / $totalColumns)
 
 
 =font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false)
@@ -62,14 +58,6 @@
 	height: 100%
 	object-fit: cover
 
-=centralizeY($chilElement, $width: 100%, $parentPosition: relative)
-	position: $parentPosition
-	#{$chilElement}
-		position: absolute
-		top: 50%
-		transform: translateY(-50%)
-		width: $width
-
 =size($width, $height: $width)
 	width: $width
 	height: $height
@@ -82,6 +70,11 @@
 	bottom: $b
 	left: $l
 
+=pseudo($display: block, $position: absolute, $content: '')
+	content: $content
+	position: $position
+  display: $display
+
 =border($style, $sides...)
 	@if length($sides) == 0
 		border: $style
@@ -90,17 +83,13 @@
 			@if $side == 'top' or $side == 'right' or $side == 'bottom' or $side == 'left'
 				border-#{$side}: $style
 
-=pseudo($display: block, $position: absolute, $content: '')
-	content: $content
-	position: $position
-  display: $display
-
-=truncate($maxWidth, $display: block)
-	display: $display
-	max-width: $maxWidth
-  white-space: nowrap
-  overflow: hidden
-  text-overflow: ellipsis
+=centralizeY($chilElement, $width: 100%, $parentPosition: relative)
+	position: $parentPosition
+	#{$chilElement}
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		width: $width
 
 =background($image: false, $repeat: false, $color: false, $origin: false, $cover: false, $position: false)
 	@if $image
@@ -119,11 +108,11 @@
 =square($top, $right, $background, $color, $text: '')
 	position: relative
 	&::after
-		padding: 0.25em 1em
+		padding: 0.25em 2em
 		content: $text
 		position: absolute
 		background: $background
-		color: $color
+		color: $white
 		@if $right == center and $top == center
 			right: 50%
 			top: 50%
@@ -135,7 +124,19 @@
 		@elseif $top == center
 			top: 50%
 			transform: translateY(-50%)
-			right: $rigth
+			right: $right
 		@else
 			top: $top
-			right: $rigth
+			right: $right
+
+=triangle($size, $color, $offsetRight)
+	&::after
+		content: ''
+		border-left: $size solid transparent
+		border-right: $size solid transparent
+		border-bottom: $size solid $color
+		top: -$size
+		height: 0
+		right: $offsetRight
+		position: absolute
+		width: 0
