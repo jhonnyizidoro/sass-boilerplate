@@ -8,9 +8,10 @@ body
 	margin: 0
 
 a
-	color: inherit
-	text-decoration: none
 	background-color: transparent
+	color: inherit
+	cursor: pointer
+	text-decoration: none
 	&:visited
 		color: inherit
 		text-decoration: none
@@ -40,31 +41,18 @@ video
 	display: inline-block
 	vertical-align: baseline
 
-audio:not([controls])
-	display: none
-	height: 0
-
-[hidden],
-template
-	display: none
-
-abbr[title]
-	border-bottom: 1px dotted
 
 b,
 strong
 	font-weight: bold
 
-dfn
-	font-style: italic
-
 h1
 	font-size: 2em
-	margin: 0.67em 0
+	margin: .67em 0
 
 mark
-	background: #ff0
-	color: #000
+	background: $warning
+	color: $black
 
 small
 	font-size: 80%
@@ -77,16 +65,13 @@ sup
 	vertical-align: baseline
 
 sup
-	top: -0.5em
+	top: -.5em
 
 sub
-	bottom: -0.25em
+	bottom: -.25em
 
 img
 	border: 0
-
-svg:not(:root)
-	overflow hidden
 
 figure
 	margin: 0
@@ -122,9 +107,9 @@ select
 	text-transform: none
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"]
+html input[type='button'],
+input[type='reset'],
+input[type='submit']
 	-webkit-appearance: button
 	cursor: pointer
 
@@ -142,29 +127,29 @@ input::-moz-focus-inner
 input
 	line-height: normal
 
-input[type="checkbox"],
-input[type="radio"]
+input[type='checkbox'],
+input[type='radio']
 	box-sizing: border-box
 	padding: 0
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button
 	height: auto
 
-input[type="search"]
-	-webkit-appearance: textfield
+input[type='search']
 	-moz-box-sizing: content-box
+	-webkit-appearance: textfield
 	-webkit-box-sizing: content-box
 	box-sizing: content-box
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration
 	-webkit-appearance: none
 
 fieldset
-	border: none
+	border: 0
 	margin: 0 2px
-	padding: 0.35em 0.625em 0.75em
+	padding: .35em .625em .75em
 
 legend
 	border: 0
@@ -175,7 +160,6 @@ textarea
 
 optgroup
 	font-weight: bold
-
 
 table
 	border-collapse: collapse

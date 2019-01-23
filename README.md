@@ -16,29 +16,29 @@ This is the main file, where all the other files will be imported. This is neces
 ## Variables and Container
 The **_variables.sass** file is the core of this boilerplate. You can customize any of the variables as you want. By default this boilerplate has 5 screen sizes. *Mobile*, *Tablet*, *Desktop*, *Widescreen* and *Full HD*. Every size has it's respective variables, except for the *mobile* size, wich is smaller than *tablet*.
 ```scss
-$tabletStart: 600px
-$tabletContainer: 100%
+$tablet-start: 600px
+$tablet-container: 100%
 
-$desktopStart: 1024px
-$desktopContainer: 100%
+$desktop-start: 1024px
+$desktop-container: 100%
 
-$widescreenStart: 1280px
-$widescreenContainer: 1280px
+$widescreen-start: 1280px
+$widescreen-container: 1280px
 
-$fullHdStart: 1472px
-$fullHdContainer: 1344px
+$fullhd-start: 1472px
+$fullhd-container: 1344px
 ```
-These two variables defines how mutch columns the grid system will have and how larger is the gap between the columns.
+These two variables defines how mutch columns the grid system will have and how larger is the gap between the columns. You can change how mutch columns you want, the columns classes are generetade dinamically.
 ```scss
 $columns: 24
-$gap: 10px
+$gap: 5px
 ```
 
 The color variables are not that important, but is a good practice to don't use colors directly in your Sass files, always use clor variables.
 ## Mixins
-This is my favorite Sass feature, this helps you to inject a lot of CSS with just one line os Sass. The best thing about mixins if that the mixin will only be proccessed if used, so you can have how mutch mixins you want. I will cover one by one.
+This is my favorite Sass feature, this helps you to inject a lot of CSS with just one line of Sass. The best thing about mixins if that the mixin will only be proccessed if used, so you can have how mutch mixins you want. I will cover one by one in this doc.
 
-### **+mobile / +desktop / +widescreen / +fullhd**
+### **+mobile / +tablet / +desktop / +widescreen / +fullhd**
 
 Use these mixins when you need to stylize and element for just one screen size. Normally you will just stylize an element and after use the **mobile** and **tablet** mixin for some adjusts. Just remember that this mixins will use the responsiveness variables as parmeter.
 
@@ -47,6 +47,9 @@ Use these mixins when you need to stylize and element for just one screen size. 
 +desktop
   .container
     background-color: blue
++tablet
+  .container
+    background-color: white
 +mobile
   .container
     background-color: red
@@ -55,6 +58,11 @@ Use these mixins when you need to stylize and element for just one screen size. 
 @media only screen and (min-width: 1024px) {
   .container {
     background-color: blue;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .container {
+    background-color: white;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -258,5 +266,28 @@ body {
   background-image: url('/images/my-bg-img.jpg');
   background-repeat: no-repeat;
   background-origin: 50% 50%;
+}
+```
+### **+keep-ratio**
+Thi should be applied in a **img** or **iframe** parent element. This will make the image or iframe keep the aspect ratio. If you don't pass any parameter, the ratio will be 1 by 1.
+
+Parameters: $width *DEFAULT 1*, $height: DEFAULT $width
+```css
+/* USAGE */
+figure
+  +keep-ratio(16, 9)
+
+/* OUTPUT */
+figure {
+  padding-top: 56,25%;
+  position: relative;
+}
+figure img, figure iframe {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  object-fit: cover;
 }
 ```
