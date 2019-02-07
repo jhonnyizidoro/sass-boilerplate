@@ -36,9 +36,11 @@
 		padding: $gap
 		width: percentage(1 / $totalolumns)
 
-=font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false)
+=font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false, $st: false)
 	@if $s
 		font-size: $s
+	@if $st
+		font-style: $st
 	@if $w
 		font-weight: $w
 	@if $lh
