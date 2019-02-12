@@ -114,3 +114,12 @@
 		+size(100%)
 		+position(0, $l: 0)
 		object-fit: cover
+
+=truncate($w: false, $mw: $w)
+	@if $mw
+		max-width: $mw
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+	@if $w
+		width: $w
