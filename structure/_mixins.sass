@@ -28,13 +28,13 @@
 		flex-grow: $grow
 		flex-shrink: $shrink
 
-=columns($totalolumns, $gap: $gap)
+=columns($totalColumns, $gap: $gap)
 	display: flex
 	flex-direction: row
 	flex-wrap: wrap
 	>*
 		padding: $gap
-		width: percentage(1 / $totalolumns)
+		width: percentage(1 / $totalColumns)
 
 =font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false, $st: false)
 	@if $s
