@@ -55,6 +55,7 @@
 		letter-spacing: $ls
 
 =cover
+	display: block
 	height: 100%
 	object-fit: cover
 	width: 100%
@@ -106,11 +107,10 @@
 	@if $size
 		background-size: $size
 
-=keep-ratio($width: 1, $heigth: $width)
+=keep-ratio($width: 1, $heigth: $width, $selector: 'img, iframe')
 	padding-top: percentage($heigth / $width)
 	position: relative
-	img,
-	iframe
+	#{$selector}
 		+size(100%)
 		+position(0, $l: 0)
 		object-fit: cover
