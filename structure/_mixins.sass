@@ -28,7 +28,7 @@
 		flex-grow: $grow
 		flex-shrink: $shrink
 
-=columns($totalColumns, $gap: $gap)
+=columns($totalColumns, $gap: 0)
 	display: flex
 	flex-direction: row
 	flex-wrap: wrap
@@ -36,23 +36,25 @@
 		padding: $gap
 		width: percentage(1 / $totalColumns)
 
-=font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false, $st: false)
+=font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false, $st: false, $d: false)
+	@if $c
+		color: $c
 	@if $s
 		font-size: $s
 	@if $st
 		font-style: $st
 	@if $w
 		font-weight: $w
-	@if $lh
-		line-height: $lh
-	@if $c
-		color: $c
-	@if $t
-		text-transform: $t
-	@if $a
-		text-align: $a
 	@if $ls
 		letter-spacing: $ls
+	@if $lh
+		line-height: $lh
+	@if $a
+		text-align: $a
+	@if $d
+		text-decoration: $d
+	@if $t
+		text-transform: $t
 
 =cover
 	display: block

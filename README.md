@@ -5,11 +5,11 @@ The answer is simple, you write less code, a lot less and it's more productive. 
 ```scss
 /** SCSS syntax */
 .container {
-  @include mixin_name($parameter);
+  @include mixin_name($argument);
 }
 /** Sass syntax */
 .container
-  +mixin_name($parameter)
+  +mixin_name($argument)
 ```
 ## App
 This is the main file, where all the other files will be imported. This is necessary because Sass processors normaly process only one file by default. The variables and mixins files must be the firsts to be included.
@@ -98,7 +98,7 @@ Parameters: $totalColumns **REQUIRED**, $gap *DEFAULT $gap*
 ```css
 /* USAGE */
 .container
-  +columns(4)
+  +columns(4, 10px)
 
 +tablet
   .container
@@ -146,7 +146,7 @@ Parameters: $totalColumns **REQUIRED**, $gap *DEFAULT $gap*
 ### **+font**
 This is other mixins that can make your Sass a lot cleaner. All the parameters are optionals. I made the variables name with only one letter, it seems to be confusing in the beginning, but once you are used to it, it's very easier.
 
-Parameters: $s: *font-size*, $w: *font-weight*, $lh: *line-height*, $c: *color*, $t: *text-transform*, $a: *text-align*, $ls: *letter-spacing*
+Parameters: $s: *font-size*, $w: *font-weight*, $lh: *line-height*, $c: *color*, $t: *text-transform*, $a: *text-align*, $ls: *letter-spacing*, $d: *text-decoration*
 ```css
 /* USAGE */
 p.article
