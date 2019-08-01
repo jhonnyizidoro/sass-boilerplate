@@ -66,14 +66,6 @@
 	height: $height
 	width: $width
 
-=centralize-y($child-element, $width: 100%, $parent-position: relative)
-	position: $parent-position
-	#{$child-element}
-		position: absolute
-		top: 50%
-		transform: translateY(-50%)
-		width: $width
-
 =position($t: auto, $r: auto, $b: auto, $l: auto, $p: absolute)
 	@if $p
 		position: $p
@@ -82,32 +74,24 @@
 	right: $r
 	top: $t
 
-=border($style, $sides...)
-	@if length($sides) == 0
-		border: $style
-	@else
-		@each $side in $sides
-			@if $side == 'top' or $side == 'right' or $side == 'bottom' or $side == 'left'
-				border-#{$side}: $style
+=background($i: false, $r: false, $c: false, $o: false, $s: false, $p: false)
+  @if $c
+    background-color: $c
+  @if $i
+    background-image: url($i)
+  @if $o
+    background-origin: $o
+  @if $p
+    background-position: $p
+  @if $r
+    background-repeat: $r
+  @if $s
+    background-size: $s
 
 =pseudo($display: block, $position: absolute, $content: '')
 	content: $content
 	display: $display
 	position: $position
-
-=background($image: false, $repeat: false, $color: false, $origin: false, $size: false, $position: false)
-	@if $color
-		background-color: $color
-	@if $image
-		background-image: url($image)
-	@if $origin
-		background-origin: $origin
-	@if $position
-		background-position: $position
-	@if $repeat
-		background-repeat: $repeat
-	@if $size
-		background-size: $size
 
 =keep-ratio($width: 1, $heigth: $width, $selector: 'img, iframe')
 	padding-top: percentage($heigth / $width)
