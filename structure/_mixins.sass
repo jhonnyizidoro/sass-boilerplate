@@ -18,22 +18,32 @@
 	@media only screen and (min-width: #{$fullhd-start})
 		@content
 
-=flex($justify, $align, $direction: row, $wrap: nowrap, $grow: 0, $shrink: 1)
-	align-items: $align
+=flex($j: false, $a: false, $d: false, $w: false, $g: false, $s: false, $b: false)
+	@if $a
+		align-items: $a
 	display: flex
-	flex-direction: $direction
-	flex-wrap: $wrap
-	justify-content: $justify
-	>*
-		flex-grow: $grow
-		flex-shrink: $shrink
+	@if $d
+		flex-direction: $d
+	@if $w
+		flex-wrap: $w
+	@if $j
+		justify-content: $j
+	@if $g or $s or $b
+		>*
+			@if $b
+				flex-basis: $b
+			@if $g
+				flex-grow: $g
+			@if $s
+				flex-shrink: $s
 
-=columns($totalColumns, $gap: 0)
+=columns($totalColumns, $gap: false)
 	display: flex
 	flex-direction: row
 	flex-wrap: wrap
 	>*
-		padding: $gap
+		@if $gap
+			padding: $gap
 		width: percentage(1 / $totalColumns)
 
 =font($s: false, $w: false, $lh: false, $c: false, $t: false, $a: false, $ls: false, $st: false, $d: false)
@@ -75,31 +85,23 @@
 	top: $t
 
 =background($i: false, $r: false, $c: false, $o: false, $s: false, $p: false)
-  @if $c
-    background-color: $c
-  @if $i
-    background-image: url($i)
-  @if $o
-    background-origin: $o
-  @if $p
-    background-position: $p
-  @if $r
-    background-repeat: $r
-  @if $s
-    background-size: $s
+	@if $c
+		background-color: $c
+	@if $i
+		background-image: url($i)
+	@if $o
+		background-origin: $o
+	@if $p
+		background-position: $p
+	@if $r
+		background-repeat: $r
+	@if $s
+		background-size: $s
 
 =pseudo($display: block, $position: absolute, $content: '')
 	content: $content
 	display: $display
 	position: $position
-
-=keep-ratio($width: 1, $heigth: $width, $selector: 'img, iframe')
-	padding-top: percentage($heigth / $width)
-	position: relative
-	#{$selector}
-		+size(100%)
-		+position(0, $l: 0)
-		object-fit: cover
 
 =truncate($w: false, $mw: $w)
 	@if $mw
@@ -109,3 +111,11 @@
 	white-space: nowrap
 	@if $w
 		width: $w
+
+=keep-ratio($width: 1, $height: $width, $selector: 'img, iframe')
+	padding-top: percentage($height / $width)
+	position: relative
+	#{$selector}
+		+size(100%)
+		+position(0, $l: 0)
+		object-fit: cover

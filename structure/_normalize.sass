@@ -1,10 +1,15 @@
 *
 	box-sizing: border-box
 
-html
-	font-family: sans-serif
-
-body
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+body,
+figure
 	margin: 0
 
 a
@@ -19,75 +24,20 @@ a
 		outline: 0
 
 article,
-aside,
-details,
-figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
-menu,
 nav,
-section,
-summary
+section
 	display: block
-
-audio,
-canvas,
-progress,
-video
-	display: inline-block
-	vertical-align: baseline
-
 
 b,
 strong
 	font-weight: bold
 
-h1
-	font-size: 2em
-	margin: .67em 0
-
-mark
-	background: $warning
-	color: $black
-
 small
 	font-size: 80%
-
-sub,
-sup
-	font-size: 75%
-	line-height: 0
-	position: relative
-	vertical-align: baseline
-
-sup
-	top: -.5em
-
-sub
-	bottom: -.25em
-
-img
-	border: 0
-
-figure
-	margin: 0
-
-hr
-	box-sizing: content-box
-	height: 0
-
-pre
-	overflow: auto
-
-code,
-kbd,
-pre,
-samp
-	font-family: monospace, monospace
-	font-size: 1em
 
 button,
 input,
@@ -126,44 +76,19 @@ input::-moz-focus-inner
 input
 	line-height: normal
 
-input[type='checkbox'],
-input[type='radio']
-	box-sizing: border-box
-	padding: 0
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button
-	height: auto
-
-input[type='search']
-	-moz-box-sizing: content-box
-	-webkit-appearance: textfield
-	-webkit-box-sizing: content-box
-	box-sizing: content-box
-
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration
-	-webkit-appearance: none
-
 fieldset
 	border: 0
-	margin: 0 2px
-	padding: .35em .625em .75em
-
-legend
-	border: 0
+	margin: 0
 	padding: 0
 
 textarea
 	overflow: auto
+	resize: none
 
 optgroup
 	font-weight: bold
 
-table
-	border-collapse: collapse
-	border-spacing: 0
-
-td,
-th
+ol
+	list-style: none
+	margin: 0
 	padding: 0
